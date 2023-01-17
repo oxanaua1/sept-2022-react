@@ -1,14 +1,15 @@
-// import React from 'react';
 import {Simpsons} from "./components/Simpsons/Simpsons";
+import {Characters} from "./components/Characters/Characters";
 
 const App = () => {
- return (
-  <div>
+    return (
+        <div>
 
-   <Simpsons/>
+            <Simpsons/>
+            <Characters/>
 
-  </div>
- );
+        </div>
+    );
 };
 
 export {App};

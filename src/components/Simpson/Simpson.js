@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Simpson = ({simpson}) => {
     const {name, surname, image} = simpson;
