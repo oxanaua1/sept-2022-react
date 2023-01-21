@@ -1,17 +1,18 @@
 import React from 'react';
 
 
-const User = ({user}) => {
+const User = ({user, onShowUserDetails}) => {
 
-    console.log(user);
-    // const {id, name} = user;
+    const {id: userId, name} = user;
 
 
     return (
         <div>
-            {/*<div>id: {id}</div>*/}
-            {/*<div>name: {name}</div>*/}
-            {/*<button onClick={()=> onShowUserDetails(userId)}>Show User Details</button>*/}
+            <div>id: {userId}</div>
+            <div>name: {name}</div>
+
+            <button onClick={() => onShowUserDetails(userId)}>Show User Details</button>
+
 
         </div>
     );
