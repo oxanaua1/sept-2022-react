@@ -4,24 +4,24 @@ import {userService} from "../../services";
 import {User} from "../User/User";
 
 
-const Users = () => {
-    const [users,setUsers] = useState([]);
+const Users = ({setUserId}) => {
 
-    useEffect(()=>{
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        userService.getAll().then(value => value.data).then(users => setUsers([...users]))
+    }, [])
+
+    return (
+        <div>
+            {
+                users.map(user => <User key={user.id} user={user} setUserId={setUserId}/>)
+
+            }
 
 
-        userService.getAll().then(value => value.data).then(users => setUsers(users))
-
-
-    },[])
-
- return (
-  <div>
-      {
-          users.map(user=> <User key={user.id} user={user}/>)
-      }
-  </div>
- );
+        </div>
+    );
 };
 
 export {Users};
