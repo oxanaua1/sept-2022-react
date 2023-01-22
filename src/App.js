@@ -1,24 +1,18 @@
 import './App.css';
-import React, {useState} from "react";
+import React from "react";
 
-import {Posts, Users} from "./components";
-
-
+import {Launches} from "./components";
 
 
 function App() {
-
-    const [userId, setUserId] = useState(null);
 
 
     return (
         <div className="App">
 
-            <Users setUserId={setUserId}/>
+            <Launches/>
 
             <hr/>
-
-            {userId && <Posts userId={userId}/>}
 
         </div>
     );
