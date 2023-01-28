@@ -1,11 +1,10 @@
 .TodoWrap {
-
     color: darkblue;
     font-style: italic;
     width: 220px;
     box-sizing: border-box;
     padding: 10px;
-    border:2px darkblue solid;
+    border: 2px darkblue solid;
     background-color: cornsilk;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }

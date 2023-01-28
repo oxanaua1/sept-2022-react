@@ -1,9 +1,10 @@
 .Header {
     min-height: 70px;
-    background-color: black;
+    background-color: #18467b;
     display: flex;
     justify-content: space-around;
     align-items: center;
+
 }
 
 .Header a {
@@ -13,5 +14,5 @@
 }
 
 .Header a[class='active'] {
-    color: yellow;
+    color: #f193e6;
 }

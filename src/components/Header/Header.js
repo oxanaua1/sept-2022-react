@@ -1,9 +1,10 @@
 import React from 'react';
-import {NavLink, Outlet} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 import css from './Header.module.css'
 
 const Header = () => {
+
     return (
         <div className={css.Header}>
 
@@ -11,8 +12,6 @@ const Header = () => {
             <NavLink to={'todos'}>Todos</NavLink>
             <NavLink to={'albums'}>Albums</NavLink>
             <NavLink to={'comments'}>Comments</NavLink>
-
-
 
         </div>
     );

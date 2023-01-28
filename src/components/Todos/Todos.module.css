@@ -1,6 +1,25 @@
-.TodosWrap{
+.TodosWrap {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
+    padding: 10px;
+}
+
+.TodosWrap button {
+
+    width: 20%;
+    min-height: 25px;
+    border-radius: 8px;
+    border: none;
+    transition-duration: 0.4s;
+    height: fit-content;
+    margin-top: 10px;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.TodosWrap button:hover {
+    background-color: cornsilk;
+    color: white;
 }

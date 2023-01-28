@@ -6,3 +6,4 @@ export * from './Header/Header';
 export * from './Todos/Todos';
 export * from './Todo/Todo';
 export * from './CommentPost/CommentPost';
+export * from './Footer/Footer';

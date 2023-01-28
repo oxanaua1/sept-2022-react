@@ -1,7 +1,7 @@
 .CommentWrap {
     color: darkblue;
     font-style: italic;
-    width: 50%;
+
     box-sizing: border-box;
     padding: 10px;
     border: 2px darkblue solid;
@@ -12,7 +12,20 @@
 
 .CommentWrap button {
     width: 20%;
-    height: 25px;
+    min-height: 25px;
+    border-radius: 8px;
+    border: none;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    transition-duration: 0.4s;
 
 }
+
+.CommentWrap button:hover {
+    background-color: hotpink;
+    color: white;
+}
+
+.CommentWrap a {
+    text-decoration: none;
+}
+

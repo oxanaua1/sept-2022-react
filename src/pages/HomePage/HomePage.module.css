@@ -1,0 +1,13 @@
+.HomePageWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: chocolate;
+    font-weight: bold;
+}
+
+.HomePageWrap img {
+    width: 100vh;
+    height: 50vh;
+}

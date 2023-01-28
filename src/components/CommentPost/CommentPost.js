@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react';
+import {useNavigate, useParams} from "react-router-dom";
+
 import {postsService} from "../../services";
-import {useParams} from "react-router-dom";
 import css from './CommentPost.module.css'
 
 const CommentPost = () => {
-    const {postId} = useParams();
-    const [post, setPost] = useState(null);
 
+    const {postId} = useParams();
+    const navigate = useNavigate();
+    const [post, setPost] = useState(null);
 
     useEffect(() => {
 
@@ -14,19 +16,21 @@ const CommentPost = () => {
             setPost(data)
         })
 
-    }, [postId])
+    }, [postId]);
+
+
     return (
         <div className={css.CommentPostWrap}>
             {post &&
-                <div>
-                    <div>id: {post.id}</div>
-                    <div>userId: {post.userId}</div>
+                <div className={css.CommentPostView}>
+                    <h4>POST N {post.id}</h4>
+                    <h4>userId: {post.userId}</h4>
                     <div>title: {post.title}</div>
                     <div>body: {post.body}</div>
 
                     <button onClick={() => {
-                        setPost(null)
-                    }}>hide post
+                        navigate(-1)
+                    }}>Hide Post
                     </button>
                 </div>
             }

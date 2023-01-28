@@ -6,6 +6,7 @@ import css from './AlbumPage.module.css'
 
 
 const AlbumsPage = () => {
+
     return (
         <div className={css.AlbumPageWrap}>
             <Albums/>
