@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
     users: userReducer
 });
 
-// створюємо сам стор(setUpStore), що є ф-єю для зчучності його типізації за доп configureStore
+// створюємо сам стор(setUpStore), що є ф-єю для зручності його типізації за доп configureStore
 const setUpStore = () => configureStore({
     reducer: rootReducer
 })

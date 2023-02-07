@@ -5,7 +5,7 @@ import {userService} from "../../services";
 import {userActions} from "../../redux";
 import {User} from "../User/User";
 
-//useDispatch-потрібно щось зробити зі стейтом використ useDispatch і описати в слайсі що я маю зробити
+//useDispatch-потрібно щось зробити зі стейтом використати useDispatch і описати в слайсі що я маю зробити
 //useSelector - потрібно щось дістати
 
 
@@ -18,15 +18,18 @@ const Users = () => {
     //const rootReducer = combineReducers({users: userReducer}); по суті буду звертатися до свого userReducer
     //і отримав весь обєкт const initialState (файл userSlice.js)
 
-    const {users} = useSelector(state => state.users);
+    const {users, errors, loading} = useSelector(state => state.users);
 
     useEffect(() => {
-        userService.getAll().then(({data}) => dispatch(userActions.getAll(data)))
+        //13) userService.getAll().then(({data}) => dispatch(userActions.getAll(data)))
+        dispatch(userActions.getAll())
 
     }, [])
 
     return (
         <div>
+            {errors && JSON.stringify(errors)}
+            {loading && <h1>Loading..............................</h1>}
             {users.map(user => <User key={user.id} user={user}/>)}
         </div>
     );
