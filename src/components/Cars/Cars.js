@@ -1,14 +1,22 @@
-import React from 'react';
-import {useSelector} from "react-redux";
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+
+import {Car} from "../Car/Car";
+import {carActions} from "../../redux";
 
 const Cars = () => {
 
     const {cars} = useSelector(state => state.cars);
-console.log(cars);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(carActions.getAll())
+    }, [dispatch])
+
 
     return (
         <div>
-            {JSON.stringify(cars)}
+            {cars.map(car => <Car key={car.id} car={car}/>)}
 
         </div>
     );
