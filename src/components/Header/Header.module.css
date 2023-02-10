@@ -1,0 +1,17 @@
+.Header{
+    height: 50px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background-color: pink;
+}
+
+a{
+    text-decoration: none;
+    color: snow;
+    margin: 5px;
+}
+
+a:hover{
+    color:blueviolet;
+}
