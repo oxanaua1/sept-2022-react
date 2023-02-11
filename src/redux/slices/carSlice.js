@@ -4,6 +4,8 @@ import {carService} from "../../services";
 
 const initialState = {
     cars: [],
+    prevPage: null,
+    nextPage: null,
     carForUpdate: null,
     errors: null,
     loading: null
@@ -12,9 +14,9 @@ const initialState = {
 
 const getAll = createAsyncThunk(
     'carSlice/getAll',
-    async (_, thunkAPI) => {
+    async ({page}, thunkAPI) => {
         try {
-            const {data} = await carService.getAll();
+            const {data} = await carService.getAll(page);
             return data
 
         } catch (e) {
@@ -29,7 +31,7 @@ const create = createAsyncThunk(
     async ({car}, thunkAPI) => {
         try {
             await carService.create(car);
-            thunkAPI.dispatch(getAll())       //знову перезавантажити всі кари та відрендерити на сторінці
+            thunkAPI.dispatch(getAll({page: 1}))       //знову перезавантажити всі кари та відрендерити на сторінці
 
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data)
@@ -43,7 +45,7 @@ const deleteById = createAsyncThunk(
     async ({id}, thunkAPI) => {
         try {
             await carService.deleteById(id)
-            thunkAPI.dispatch(getAll())
+            thunkAPI.dispatch(getAll({page: 1}))
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data)
         }
@@ -54,7 +56,7 @@ const updateById = createAsyncThunk(
     async ({id, car}, thunkAPI) => {
         try {
             await carService.updateById(id, car);
-            thunkAPI.dispatch(getAll())
+            thunkAPI.dispatch(getAll({page: 1}))
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data)
 
@@ -72,8 +74,11 @@ const carSlice = createSlice({
     },
     extraReducers: builder => builder
         .addCase(getAll.fulfilled, (state, action) => {
+            const {prev, next, items} = action.payload //prev, next, items - обєкт з АРІ
             getAll.loading = false;
-            state.cars = action.payload;
+            state.cars = items;
+            state.prevPage = prev;
+            state.nextPage = next;
 
         })
 
