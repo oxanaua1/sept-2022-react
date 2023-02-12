@@ -4,7 +4,7 @@ import {joiResolver} from "@hookform/resolvers/joi";
 import {carValidator} from "../../validators";
 import {useDispatch, useSelector} from "react-redux";
 import {carActions} from "../../redux";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 
 const Form = () => {
     const {register, handleSubmit, reset, setValue, formState: {errors, isValid}} = useForm({
@@ -32,12 +32,19 @@ const Form = () => {
         reset()
     }
     return (
-        <form onSubmit={handleSubmit(carForUpdate ? update : save)}>
-            <input type="text" placeholder={'brand'} {...register('brand')}/>
-            <input type="text" placeholder={'price'} {...register('price', {valueAsNumber: true})}/>
-            <input type="text" placeholder={'year'} {...register('year', {valueAsNumber: true})}/>
-            <button disabled={!isValid}>{carForUpdate ? 'update' : 'create'}</button>
-        </form>
+        <div>
+            <form onSubmit={handleSubmit(carForUpdate ? update : save)}>
+                <input type="text" placeholder={'brand'} {...register('brand')}/>
+                <input type="text" placeholder={'price'} {...register('price', {valueAsNumber: true})}/>
+                <input type="text" placeholder={'year'} {...register('year', {valueAsNumber: true})}/>
+                <button disabled={!isValid}>{carForUpdate ? 'update' : 'create'}</button>
+            </form>
+            <div>
+                {errors.brand && <span>{errors.brand.message}</span>}
+                {errors.price && <span>{errors.price.message}</span>}
+                {errors.year && <span>{errors.year.message}</span>}
+            </div>
+        </div>
     );
 };
 
